@@ -21,6 +21,18 @@ class ProductPage(BasePage):
         assert product_name == product_in_basket_name, "Product name in product page and product name in basket didn`t match"
         assert product_price == product_in_basket_price, "Product price in product page and product price in basket didn`t match"
 
+    def add_product_to_basket(self):
+        add_link = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_LINK)
+        add_link.click()
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def message_should_disappear(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
 
 
 
