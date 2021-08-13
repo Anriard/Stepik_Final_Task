@@ -1,8 +1,8 @@
-from pages.product_page import ProductPage
-from pages.login_page import LoginPage
+from .pages.product_page import ProductPage
+from .pages.login_page import LoginPage
 import pytest
 import time
-from pages.basket_page import BasketPage
+from .pages.basket_page import BasketPage
 
 
 @pytest.mark.parametrize('link', [r"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
