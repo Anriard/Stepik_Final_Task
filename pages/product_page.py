@@ -8,7 +8,6 @@ class ProductPage(BasePage):
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
 
-
         add_link = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_LINK)
         add_link.click()
         print("Product added to basket")
@@ -18,8 +17,10 @@ class ProductPage(BasePage):
         product_in_basket_name = self.browser.find_element(*ProductPageLocators.PRODUCT_IN_BASKET_NAME).text
         product_in_basket_price = self.browser.find_element(*ProductPageLocators.PRODUCT_IN_BASKET_PRICE).text
 
-        assert product_name == product_in_basket_name, "Product name in product page and product name in basket didn`t match"
-        assert product_price == product_in_basket_price, "Product price in product page and product price in basket didn`t match"
+        assert product_name == product_in_basket_name, "Product name in product page" \
+                                                       " and product name in basket didn`t match"
+        assert product_price == product_in_basket_price, "Product price in product page" \
+                                                         " and product price in basket didn`t match"
 
     def add_product_to_basket(self):
         add_link = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_LINK)
